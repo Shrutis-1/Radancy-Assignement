@@ -1,0 +1,271 @@
+@import 'variables';
+@import 'base';
+@import 'layout';
+
+// Header SCSS
+.header {
+    background-color: #fff;
+    padding-block: 3.5rem;
+    text-align: left;
+    @media (max-width: 768px) {
+        padding-block: 2rem;
+    }
+
+    .logo {
+      max-width: 318px;
+      height: auto;
+
+      @media (max-width: 768px) {
+        display: block;
+        margin: 0 auto;
+        max-width: 220px;
+      }
+    }
+  }
+// Banner with Overlay SCSS
+  .banner {
+    position: relative;
+    width: 100%;
+    min-height: 600px;
+    background-image: url('../assets/images/banner-bg-img.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 30% center;
+
+    @media (max-width: 768px) {
+        background-size: cover;
+        min-height: 350px;
+        background-position: 15% center;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 50%;
+      height: 100%;
+      background-color: rgba(0, 89, 68, 0.8);
+      clip-path: polygon(20% 0%, 100% 0, 100% 100%, 0% 100%);
+
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
+  }
+
+  // citizens advantage section scss
+  .info-section {
+      padding-top: 1.25rem;
+    .info-row {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 5rem;
+      &:last-child{
+          margin-bottom: 0;
+      }
+      .info-item {
+        width: 50%;
+        // padding: 0 1.5rem 2rem 1.5rem;
+        box-sizing: border-box;
+
+        h3 {
+          color: $primary;
+          font-size: 1.25rem;
+          margin-bottom: 1.7rem;
+          font-weight: 400;
+          @media (max-width: 768px){
+            margin-bottom: 1rem;
+          }
+        }
+        p{
+            font-size: 1rem;
+        }
+        a {
+          color: #759B23;
+          display: inline-block;
+          margin-top: 0.5rem;
+          font-weight: 500;
+          text-decoration: none;
+        }
+
+        // Add right border only to the first column
+        &:nth-child(odd) {
+          border-right: 1px solid #666;
+          padding-right: 2.5rem;
+          @media (max-width: 768px){
+              padding-right: 0;
+              border-right: none;
+          }
+        }
+        &:nth-child(even){
+            padding-left: 2.5rem;
+            @media (max-width: 768px){
+                padding-left:0;
+            }
+        }
+      }
+
+    }
+
+    // Mobile view
+    @media (max-width: 768px) {
+       padding-top: 0;
+      .info-row {
+        flex-direction: column;
+        margin-bottom: 0;
+        .info-item {
+          width: 100%;
+          padding-block: 1.5rem;
+          border-bottom: 1px solid #666;
+        }
+      }
+    }
+  }
+  // Home Loan Section SCSS
+ .green-block{
+     justify-content: center;
+     background-color: #00945F;
+     padding: 17px;
+     display: flex;
+     align-items: center;
+     font-size: 19px;
+     color: #fff;
+     @media (max-width: 768px) {
+        text-align: center;
+      }
+ }
+ .home-loan-desc{
+     padding: 2rem 4rem;
+     background-color: #EBF7F5;
+     p{
+         font-size: 16px;
+     }
+     @media (max-width: 768px) {
+        padding: 1rem;
+      }
+ }
+
+// Testimonial SCSS 
+ .testimonials {
+  background-color: #fff;
+
+  .testimonial-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .testimonial {
+    padding: 1rem;
+    min-height: 480px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    @media (max-width: 768px) {
+      padding-block: 1.5rem;
+     }
+    .image-container {
+      width: 185px;
+      height: 185px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-bottom: 1rem;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .quote {
+      color: #666;
+      padding: 1rem;
+      position: relative;
+      font-style: italic;
+      min-height: 280px;
+      @media (max-width: 768px) {
+       min-height: auto;
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        transform: translateX(-25%);
+        width: 60px;
+        height: 46px;
+        background-image: url("data:image/svg+xml,%3Csvg width='60' height='46' viewBox='0 0 60 46' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.93466 45.5V33.6747C0.93466 30.0833 1.56972 26.273 2.83984 22.2436C4.15376 18.1705 6.03705 14.2506 8.4897 10.484C10.9862 6.67365 13.9863 3.36694 17.4901 0.563916L25.8991 7.3963C23.1399 11.3381 20.7311 15.455 18.6726 19.7472C16.6579 23.9955 15.6506 28.5504 15.6506 33.4119V45.5H0.93466ZM34.571 45.5V33.6747C34.571 30.0833 35.2061 26.273 36.4762 22.2436C37.7901 18.1705 39.6734 14.2506 42.1261 10.484C44.6225 6.67365 47.6226 3.36694 51.1264 0.563916L59.5355 7.3963C56.7763 11.3381 54.3674 15.455 52.309 19.7472C50.2943 23.9955 49.2869 28.5504 49.2869 33.4119V45.5H34.571Z' fill='%23666666' fill-opacity='0.109804'/%3E%3C/svg%3E");
+        background-size: contain;
+        background-repeat: no-repeat;
+        pointer-events: none;
+      }
+    }
+
+    .author-info {
+      margin-top: auto;
+
+      .name,
+      .designation {
+        font-size: 14px;
+        line-height: 1.8;
+        color: #009d77;
+      }
+    }
+  }
+  @media (min-width: 1024px) {
+    .testimonial {
+      width: calc(32.333% - 1.333rem);
+    }
+  }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .testimonial {
+      width: calc(50% - 1rem);
+    }
+  }
+  @media (max-width: 768px) {
+    .testimonial-container {
+      flex-direction: column;
+    }
+
+    .testimonial {
+      width: 100%;
+      min-height: auto;
+    }
+  }
+}
+
+// Footer SCSS
+.footer{
+  border-top: 1px solid #00945F;
+  padding-block: 40px;
+  margin-top: 6rem;
+  .eeo-notice{
+    font-size: 12px;
+    color: #666;
+    margin-block: 28px;
+    a{
+      color: #666;
+    }
+  }
+  .footer-links{
+    a{
+      text-decoration: none;
+      color: #000;
+      font-size: 12px;
+    }
+  }
+  @media (max-width: 768px) {
+    margin-top: 4rem;
+  }
+}
+
+
+
+
+
+
+
